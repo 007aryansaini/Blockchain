@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Function{
+ 
+   uint public age ;
+   constructor(uint _age){
+       age = _age;
+   }
+
+   // Syntax of declaring a function -->
+   // signature of a function
+
+   // function(keyword) Function_name( parameters ) visibility(public / private / internal / external ) methodType(pure / view / simple) returns(return type )
+
+   // 1. -> simple function ( in this we can change the values of the state variables
+
+   function changeStateVariableAge() public {
+         age +=1;
+   }
+
+   // 2. --> view function ( in this we can only read the values of the state variables )
+
+   function getAge() public view returns(uint){
+       return age;
+
+    
+   }
+
+
+   //3. --> pure function (in this we cannot access any state variables)
+
+   function addTwoNumbers(uint _x , uint _y) public pure returns(uint){
+       return _x + _y;
+   }
+
+
+
+     // GAS COST --->       pure < view V simple
+
+}
