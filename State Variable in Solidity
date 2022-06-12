@@ -1,0 +1,41 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// State variables are the variable which are inside the contract but outside the function.
+
+// Some important points about state variables --->
+
+/*
+ 1.  We can create asd many state variables but we don't create much because they are directly stored on the blockchain 
+      in the contract storage which cost some gas.
+ 
+ 2. Once the contract is deployed then we cannot change anything what we have to do is we have to compile the contract again
+    and once again we have to deploy it
+
+*/
+
+
+contract StateVAriavle{
+ 
+    uint public salary = 5000000;   //This salary is the state variable
+    
+    /* There are 3 ways to initialize this state variable -->
+       1. While Declaring
+       2. through constructor
+       3. using function      */
+
+
+        // Through Constructor -->
+
+        constructor(){
+             salary = 1000000;
+        }
+
+       // Through Function -->
+        function setSalary() public {
+            salary = 7000000;
+        }
+
+
+
+}
