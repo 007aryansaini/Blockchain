@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: MIT
+pragma solidity^0.8.0;
+
+contract LocalVAriable{
+
+
+    // The variables whic are created inside a function are known as Local VAriables
+    // These are stored in memory ( TEMPORARY / STACK / RAM )
+    // They reamain in the RAM until the function is executing
+    // The amount of gas take is very small 
+
+   uint  public age;
+
+    function fun(uint _age)public returns(uint , uint){
+              age  = _age;
+              uint x = 21;
+              return(age , x);
+    }
+}
