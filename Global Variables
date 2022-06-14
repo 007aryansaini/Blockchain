@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+
+
+//These are the special variables which exixts in global workspace and provide information about the blockchain and the Transaction properties.
+// These variables are predefined.
+contract globalVariable{
+ address public myAdd = msg.sender; //msg.sender is global variable which returns the address who have called the function at that time
+ uint public timeStamp = block.timestamp; // returns the current time in unix format.
+ uint public diff = block.difficulty; 
+
+ //And there are much more glibal variables 
+ // https://drive.google.com/file/d/1V4hxjAjXfqQ8QuludukO1ydcl3mk2u7_/view?usp=sharing
+
+}
