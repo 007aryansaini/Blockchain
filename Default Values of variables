@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: MIT
+pragma solidity^0.8.0;
+
+
+// If we do not initialize anything while declaring the variable then they are automatically set with some default values
+
+contract defaultVariable{
+
+    uint public Integer; //0
+    address public Address;  // : 0x0000000000000000000000000000000000000000
+
+    bytes32 public Bytes; //0x0000000000000000000000000000000000000000000000000000000000000000
+    string public str;  //Empty String
+    bool public Bool ; //false 
+
+}
