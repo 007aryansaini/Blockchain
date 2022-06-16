@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// String is a data type Like we have other data types but it behaves differently than others.
+// It behaves like array and struct.
+
+
+contract String{
+ 
+    // Declaring a String 
+    string public name = "Aryan"; //State Variable
+
+    //But if we want to create local variable of string type 
+
+  /*  function  getName() public pure returns(string){
+            string name = "Aryan";
+            return (name);
+    }  */
+
+
+  /*The above function will show error because string ny default get stored in storage but the
+    local variables are stored in stack/memory/ram so there will be conflict.
+
+    This can be solved by using a keyword memory.
+   */
+
+
+   //The same above function by using memory keyword now and now it won/t shor any error
+
+   function  getName(string memory _getStr) public pure returns(string memory){
+            string memory name =_getStr;
+            return (name);
+   }
+
+}
