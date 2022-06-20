@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+
+contract Event{
+    event balance(address account , string message , uint val);
+
+    function setValue(uint _val) public {
+        emit balance(msg.sender , "has value " , _val);
+    }
+}
+
+
+contract Chat{
+      event chat(address indexed _from , string _message , address indexed _to);
+
+      function sendChat(address to_ , string memory message_) public {
+            emit chat(msg.sender , message_ , to_ );
+      }
+}
