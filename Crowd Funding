@@ -1,0 +1,72 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8;
+
+contract crowdFunding{
+ 
+  address public immutable owner;
+  mapping(address => uint) public funders;
+  uint public goal;
+  uint public minAmount;
+  uint public noOfFunders;
+  uint public fundRaised;
+  uint public timePeriod;
+
+
+
+
+
+
+constructor(uint _goal , uint _timePeriod){
+    owner = msg.sender;
+    goal = _goal;
+    timePeriod = block.timestamp + _timePeriod;
+    minAmount = 1000 wei;
+}
+
+
+
+function contribution() public payable{
+ 
+        require(block.timestamp < timePeriod , "Time period for funding is over.");
+        require(msg.value >= minAmount , "Minimum amount criteria not satisfied.");
+
+        if(funders[msg.sender] == 0){
+                 noOfFunders++;
+        }
+
+        funders[msg.sender] += msg.value;
+        fundRaised += msg.value;
+}
+
+
+receive() payable external {
+     contribution();
+}
+
+
+
+function getRefund() public {
+
+     require(block.timestamp > timePeriod , "Funding is still going on");
+     require(fundRaised < goal , "Funding was successful");
+     require(funders[msg.sender] > 0  , "Not a Funder");
+
+     payable(msg.sender).transfer(funders[msg.sender]);
+     fundRaised -= funders[msg.sender];
+     funders[msg.sender] = 0;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+}
