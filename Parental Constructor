@@ -1,0 +1,55 @@
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+
+contract A{
+    string public name;
+    uint public age;
+
+    constructor(string memory _name , uint _age){
+        name = _name;
+        age = _age;
+}
+}
+
+contract B {
+      string public add;
+      uint public salary;
+
+      constructor(string memory _add , uint _salary){
+           salary = _salary;
+           add = _add;
+      }
+}
+
+contract C is A("Aryan" , 21),B("GBU" , 1000000){
+         
+                uint public  c =0;
+                constructor(uint _c){
+                    c = _c;
+                }
+     
+}
+
+
+contract D is B("GBU" , 1000000),A{
+
+ uint public d;
+    constructor(uint _d) A("Aryan" , 21){
+          d = _d;
+    }
+      
+}
+
+
+contract E is B,A{
+
+    uint public e;
+
+    constructor(uint _e , uint _age , uint _salary , string memory _add  , string memory _name)
+        A(_name , _age) B(_add , _salary){
+            e = _e;
+        }
+      
+}
