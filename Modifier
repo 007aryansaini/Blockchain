@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Modifier{
+      
+       address public owner = msg.sender;
+       uint  auction = 0;
+
+       modifier onlyOwner(){
+             require( owner == msg.sender , "You are not the owner.");
+             _;
+       }
+
+       function startAuction()  public onlyOwner {
+
+                 auction = 1; 
+       }
+
+       function stopAuction() public onlyOwner {
+                 auction = 0;
+       }
+
+       function checkStatus() public view onlyOwner returns(uint) {
+             return  auction;
+       }
+
+
+
+
+}
