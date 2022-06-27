@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+struct donater_info{
+      
+       string name;
+       uint age;
+       string add;
+       uint donation;
+}
+
+contract advanceMApping{
+
+      mapping(address => donater_info) public donate;
+
+      function set(string memory _name , uint _age , string memory _add , uint _don) public{
+
+              donate[msg.sender] = donater_info(_name , _age , _add , donate[msg.sender].donation + _don);
+
+      }
+
+      function reset() public {
+          delete donate[msg.sender];
+      }
+}
